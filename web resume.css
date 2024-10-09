@@ -1,0 +1,582 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bala Rishi  - My Web Resume</title>
+  <style>
+      /* Internal CSS */
+      /* Responsive layout */
+      @media only screen and (max-width: 600px) {
+        .profile-content {
+          flex-direction: column; /* Change flex direction to column for smaller screens */
+        }
+    
+        .profile-image,
+        .profile-bio {
+          width: 100%; /* Make profile image and bio take full width on smaller screens */
+          padding: 10px; /* Reduce padding for smaller screens */
+        }
+    
+        .card {
+          margin-left: 10px; /* Adjust margin for smaller screens */
+          margin-right: 10px; /* Adjust margin for smaller screens */
+        }
+      }
+    
+    body {
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+      scroll-padding-top: 100px; /* Scroll padding */
+      background-image: url('https://b.github.ioBalarishi503My-Resume/Freebie-GradientTextures-01.jpg'); /* Replace 'your-background-image.jpg' with your image file */
+      background-size: cover; /* Cover the entire viewport */
+      background-attachment: fixed; /* Make the background fixed */
+      margin: 0; /* Remove default margin */
+      margin-top: 150px;
+      margin-bottom: 120px;
+      padding: 0; /* Remove default padding */
+      transition: transform 0.5s ease;
+    }
+    
+    header {
+      background-image: linear-gradient(to right, rgb(249, 3, 212) , rgb(39, 81, 250));
+      opacity: 100%;
+      color: #000000;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: top 0.3s ease; /* Add transition for smooth effect */
+    }
+    
+    header.hidden {
+      top: -300px; /* Hide header when scrolled */
+    }
+    
+    .profile-content {
+      display: flex;
+    }
+    
+    .profile-image {
+      flex: 0 0 50%; /* 50% width for the image */
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-image:hover {
+      transform: scale(1.15); /* Increase scale on hover */
+    }
+    
+    .profile-bio {
+      flex: 1; /* Remaining width for the bio */
+      padding: 20px;
+    }
+    
+    .profile-bio h2 {
+      color: #000000;
+    }
+    
+    .profile-bio p {
+      color: #000000;
+    }
+    
+    nav {
+      background-image: linear-gradient(to bottom, rgb(249, 3, 212) , rgb(39, 81, 250));
+      opacity: 90%;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 200px;
+      transition: left 0.3s ease;
+      z-index: 1001;
+      display: flex; /* Add display flex */
+      flex-direction: column; /* Arrange items vertically */
+    }
+    
+    nav.left {
+      left: -200px;
+    }
+    
+    nav.open {
+      left: 0;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+      transition: transform 0.3s ease; /* Add transition effect */
+    }
+    
+    nav a:hover {
+      background-color: #5b1d56;
+      transform: scale(1.05); /* Increase scale on hover */
+    }
+    
+    .social-icons-nav {
+      margin-top: auto; /* Pushes the icons to the bottom */
+    }
+    
+    .social-icons-nav a {
+      margin: 0 10px;
+    }
+    
+    .social-icons-nav img {
+      width: 40px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons-nav a:hover img {
+      transform: scale(1.1);
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease; /* Add transition effect */
+    }
+    
+    .card:hover {
+      transform: scale(1.05); /* Increase scale on hover */
+    }
+    
+    
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    form label {
+      margin-bottom: 5px;
+    }
+    
+    form input,
+    form textarea {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #5fcaff;
+      border-radius: 5px;
+      box-sizing: border-box;
+      width: calc(100% - 22px); /* Adjusted width to account for padding */
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      display: inline-block;
+      width: calc(50% - 11px); /* Adjusted width for first name and last name */
+    }
+    
+    button[type="submit"] {
+      padding: 10px;
+      background-color: #9700b1;
+      color: #000000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #6c009a;
+    }
+    
+    footer {
+      background-image: linear-gradient(to right,white, rgb(249, 3, 212) , rgb(39, 81, 250));
+      opacity: 80%;
+      color: #000000;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      bottom: -80px; /* Initially hidden */
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      opacity: 0; /* Initially hidden */
+    }
+    
+    footer.bottom {
+      bottom: 0; /* Position at the bottom when scrolled */
+      opacity: 1; /* Show footer when at the bottom */
+    }
+    
+    footer.open {
+      opacity: 80%; /* Show footer when hovered */
+    }
+    
+    .social-icons {
+      display: flex;
+    }
+    
+    .social-icons a {
+      margin: 0 10px;
+    }
+    
+    .social-icons img {
+      width: 40px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover img {
+      transform: scale(1.1);
+    }
+    
+    .contact-info {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+    }
+    
+    .contact-info p {
+      margin: 0;
+      margin-right: 25px;
+    }
+    
+    .contact-info a {
+      color: #000000;
+      text-decoration: none;
+    }
+    
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 100%; /* Set the width of the container to 100% */
+      margin: 20px auto; /* Set margin to center the container horizontally */
+      padding: 0 20px; /* Add padding for content spacing */
+      box-sizing: border-box; /* Ensure padding doesn't affect the width */
+    }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      width: 100%; /* Set the width of the cards to 100% */
+      max-width: 800px; /* Set maximum width for larger screens */
+      margin-left: auto;
+      margin-right: auto;
+      background-image: url('https://t3.ftcdn.net/jpg/04/56/00/16/360_F_456001627_vYt7ZFjxEQ1sshme67JAXorKRPo8gsfN.jpg'); 
+      background-size: cover; /* Cover the entire card */
+      background-position: center; /* Center the background image */
+    }
+    .card .content {
+      display: none; /* Hide the content by default */
+      transition: display 0.5s ease; /* Add transition effect */
+    }
+    
+    .card:hover .content {
+      display: block; /* Display the content when card is hovered */
+    }    
+
+    .card-content {
+      padding: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px 10px 0 0;
+    }
+
+    h2 {
+      text-decoration: underline;
+      font-style: oblique;
+      font-weight: bold;
+      font-variant-position: super;
+      color: #000000;
+    }
+
+    p {
+      color: #000000;
+    }
+
+    ul {
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="profile-image">
+    <img src="https://arjun33388.github.io/My-Resume/Portfolio-header.png" alt="Profile Picture" height="150px" width="auto">
+  </div>
+</header>
+
+<nav>
+  <a href="https://drive.google.com/file/d/1HtLe5x6jJXHhwBYSYPlaR4ytLpTe40SH/view?usp=sharing"><img src="https://resumeworded.com/assets/images/resume-guides/digital-transformation-leader.png" height="90px" width="auto"></a>
+  <a onclick="scrollToSection('profile')">Profile</a>
+  <a onclick="scrollToSection('education')">Education</a>
+  <a onclick="scrollToSection('interests')">Experience</a>
+  <a onclick="scrollToSection('projects')">Projects</a>
+  <a onclick="scrollToSection('certifications')">Certifications</a>
+  <a onclick="scrollToSection('skills')">Key Skills</a>
+  <a onclick="scrollToSection('technical-skills')">Technical Skills</a>
+  <a onclick="scrollToSection('achievements')">Volunteering</a>
+  <a onclick="scrollToSection('more')">For More Information</a>
+  <div class="social-icons-nav">
+    <a href="https://www.linkedin.com/in/-arjun--r/"><img src="https://arjun33388.github.io/My-Resume/linkedin-logo-png-1837.png" alt="LinkedIn"></a>
+    <a href="https://github.com/Arjun33388"><img src="https://arjun33388.github.io/My-Resume/512x512-logo-27170.png" alt="GitHub"></a>
+    <a href="https://www.instagram.com/_arjun__r"><img src="https://arjun33388.github.io/My-Resume/—Pngtree—instagram icon instagram logo_3584852.png" alt="Instagram"></a>
+    <a href="https://www.facebook.com/arjun33388"><img src="https://arjun33388.github.io/My-Resume/logo-facebookpng-32204.png" alt="Facebook"></a>
+  </div>
+</nav>
+
+<div id="profile" class="container">
+  <!-- Profile -->
+  <div class="card">
+    <div class="profile-content">
+      <div class="profile-image">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczN4x90w35EVEQx5peeCtfOT4fMNLsTYe3TzRMd2HHtAEonqnyfcncHDoKKaZ6AkOgCD9678_KmYJunZpITicTwA1gOauychUcaY5udxkyIXa8R5tpwxtmnWKa-Qf6-SGOiXzOACvYoI8GXtqLWA_reONw=w1474-h928-s-no-gm?authuser=0" alt="Profile Picture">
+      </div>
+      <div class="profile-bio">
+        <u><h2>About me</h2></u>
+        <p>Passionate and driven computer science student with a keen eye for problem-solving and a demonstrated ability to deliver tangible outcomes. I excel in environments that foster collaboration and innovation. Committed to leveraging my skills and enthusiasm to drive meaningful contributions to the world.</p><li> | <u>Technology enthusiast</u> | </li><p></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="education" class="container">
+  <!-- Education -->
+  <div class="card">
+    <div class="card-content">
+      <h2>Education</h2>
+      <p></p><li><u>Loyola Academy, Secunderabad</u> -- Bachelor's Degree</li><br>August 2022 - Ongoing<br>Currently pursuing a Bachelor of Science specializing in Computer Science and Engineering.<div class="content">Academic Achievement: 9.66 CGPA (Till Date)<br><li>Activities:</li>Website Head of the Student Council - 2024 - 2025<br>Documentation Head of MAGIC Youth Core Committee - 2023 - 2024</div><p></p>
+      <p></p><li><u>Trividyaa Junior College, Suchitra</u> -- Pre-University</li><br>June 2020 - May 2022<br>Completed my Pre-University education majoring in Maths, Physics, and Chemistry.<br><div class="content">Academic Achievement: 95.2% (TSBIE)</div><p></p>
+    </div>
+  </div>
+</div>
+
+
+<div id="interests" class="container">
+  <!-- Interests -->
+  <div class="card">
+    <div class="card-content">
+      <h2>Work Experience</h2>
+      <ul>
+        <li><u>Data Science and AIML Intern</u> -- YBI Foundation<br>Internship -- July, 2024 - Present</li>
+        <div class="content"><ul><li>Exploring the fields of Data Science and Data Analytics.</li></ul></div><br>
+        <li><u>Python Programming Intern</u> -- YBI Foundation<br>Internship -- June, 2024 - August, 2024
+          <div class="content"><ul>
+            <li>Utilized Pandas library for data analysis, manipulation, and visualization purposes.</li>
+            <li>Constructed web-based applications using the Django framework.</li>
+            <li>Built A Movie Recommendation System powered by Machine Learning Algorithms.</li>
+          </ul></div>
+        </li><br>
+        <li><u>Artificial Intelligence and Machine Learning Intern</u> -- YBI Foundation<br>Internship -- June, 2024 - July, 2024
+          <div class="content"><ul>
+            <li>Developed Al models to automate data processing tasks.</li>
+            <li>Built prototypes of automated decision-making systems using reinforcement learning.</li>
+          </ul></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="projects" class="container">
+  <!-- Education -->
+  <div class="card">
+    <div class="card-content">
+      <h2>Projects</h2>
+      <p></p><li><u>SmartFlick Finder</u> -- Minor Project</li><div class="content">April, 2024 - Present<br> A Recommendation System powered by Machine Learning Algorithms (Cosine Similarity)</div><p></p>
+      <p></p><li><u>Smart Security System</u> -- Mini Project</li><div class="content">March, 2024 - April, 2024<br>A Security Camera System optimised to capture based on the situation powered by OpenCV and Image Processing</div><p></p>
+    </div>
+  </div>
+</div>
+
+<div id="certifications" class="container">
+  <!-- Workshops & Certifications -->
+  <div class="card">
+    <div class="card-content">
+      <h2>Workshops &amp; Certifications</h2>
+      <p></p><li><u>AI and Data Skills</u></li><br><div class="content">June, 2024 - YBI Foundation<br>Completed a 2 weeks course on Artificial Intelligence and Data Skills which was an Internship cum Certification Program.<p></p></div>
+      <p></p><li><u>Cyber Security / Fundamentals of Cyber Security</u></li><br><div class="content">10th - 12th July, 2023 - Loyola Academy, Secunderabad<br>Participated in a 3 days Practical Hands-on Workshop on CYBER SECURITY (Level - 1) conducted by the dept of B.Sc Computer Science and Engineering in association with Supraja Technologies.<p></p></div>
+      <p></p><li><u>IT Fundamentals / Comptia IT Fundamentals (FC0-U61)</u></li><br><div class="content">December 10th, 2023 - Comptia, Udemy<br>Completed a Comptia IT Fundamentals (FC0-U61) ITF+ Course on Udemy instructed by Mike Chapple, Ph.D.<p></p></div>
+      <p></p><li><u>Psychology / Introduction to Psychology (NPTEL)</u></li><br><div class="content">January - March, 2023 - IIT Kanpur, NPTEL, Swayam<br>Completed an Introduction to Psychology course offered by the Institute of Technology, Kanpur on NPTEL, Swayam.<p></p></div>
+      <p></p><li><u>Spanish / Language</u></li><br><div class="content">December, 2023 - Loyola Academy, Secunderabad<br>Completed a Spanish Language course offered as a Skill Enhancement Certificate Course at Loyola Academy, Secunderabad.<p></p></div>
+    </div>
+  </div>
+</div>
+
+<div id="skills" class="container">
+  <!-- Key Skills -->
+  <div class="card">
+    <div class="card-content">
+      <h2>Key Skills</h2>
+      <ul>
+        <li>Problem Solving</li>
+        <li>Communication<br>
+          <div class="content"><ul>
+            <li>English (Spoken and Literature)</li>
+            <li>Hindi (Spoken and Literature)</li>
+            <li>Kannada (Spoken and Literature)</li>
+            <li>Telugu (Spoken and Literature)</li>
+          </ul></div>
+        </li>
+        <li>Critical Thinking</li>
+        <li>Effective Team Management and Leadership</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="technical-skills" class="container">
+  <!-- Technical Skills -->
+  <div class="card">
+    <div class="card-content">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>Web Development<br>
+          <div class="content"><ul>
+            <li>Hyper Text Markup Language - HTML</li>
+            <li>Cascading Style Sheets - CSS</li>
+            <li>JavaScript - JS</li>
+          </ul></div> 
+        </li>
+        <li>Machine Learning</li>
+        <li>Python</li>
+        <li>Advanced Java</li>
+        <li>OpenCV</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="achievements" class="container">
+  <!-- Achievements and Involvements -->
+  <div class="card">
+    <div class="card-content">
+      <h2>Volunteering</h2>
+      <p><u></u></p><li><u>Point of Contact - Vision Hive Hub</u> -- Let Us Dream</li><br><div class="content">July 2024 - Ongoing<br>The Let Us Dream Community Hubs are a platform for students to turn into intellects by indulging themselves into various Hubs and discover their true potential.<p></p></div>
+      <p><u></u></p><li><u>Organiser - Technical Team</u> -- Let Us Dream - Triennial International Conference - 2023</li><br><div class="content">November 2023<br>With the theme of Empowered Communities, the LET US DREAM conference brings together individuals with transformative stories of social intervention.<p></p></div>
+      <p><u></u></p><li><u>Volunteer</u> -- MAGIC Youth - Transnational Youth Summit - 2022</li><br><div class="content">December 2022<br>Transnational Youth Summit - 2022 was a mock Model United Nations summit which focused on bringing out awareness regarding the global issues among the youth.<p></p></div>
+    </div>
+  </div>
+</div>
+
+<div id="more" class="container">
+  <!-- More Data -->
+  <div class="card">
+    <div class="card-content">
+      <h2>For More Information</h2>
+      <form action="https://api.web3forms.com/submit" method="POST" id="Userform">
+        <input type="hidden" name="access_key" value="8fa8c3b5-34d8-460f-ba71-b685475d0803">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required=""><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required=""><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required=""><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required=""><br>
+
+        <label for="query">Query:</label><br>
+        <textarea id="query" name="query" rows="4" cols="50" required=""></textarea><br>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- footer with contact info and socials -->
+<footer>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/_arjun__r"><img src="https://arjun33388.github.io/My-Resume/—Pngtree—instagram icon instagram logo_3584852.png" alt="Instagram"></a>
+    <a href="https://www.facebook.com/arjun33388"><img src="https://arjun33388.github.io/My-Resume/logo-facebookpng-32204.png" alt="Facebook"></a>
+  </div>
+  <div class="contact-info">
+    <p>Contact Info: <a href="mailto:arjun33388@gmail.com">arjun33388@gmail.com</a> | Phone: +91 70757 34XXX</p>
+  </div>
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/-arjun--r/"><img src="https://arjun33388.github.io/My-Resume/linkedin-logo-png-1837.png" alt="LinkedIn"></a>
+    <a href="https://github.com/Arjun33388"><img src="https://arjun33388.github.io/My-Resume/512x512-logo-27170.png" alt="GitHub"></a>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll function
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // to hide the header 
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('hidden');
+    } else {
+      header.classList.remove('hidden');
+    }
+  });
+  
+  // Change position of navigation bar after scrolling
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      document.querySelector('nav').classList.remove('open');
+      document.querySelector('nav').classList.add('left');
+    } else {
+      document.querySelector('nav').classList.remove('left');
+    }
+  });
+
+  // Show navigation bar on hover when it's on the left
+  window.addEventListener('mousemove', function(event) {
+    const nav = document.querySelector('nav');
+    if (nav.classList.contains('left') && event.clientX < 20) {
+      nav.classList.add('open');
+    }
+  });
+
+  // Change position of footer bar at the end of the webpage
+  window.addEventListener('scroll', function() {
+    const footer = document.querySelector('footer');
+    const moreDataCard = document.getElementById('more');
+    const moreDataCardTop = moreDataCard.getBoundingClientRect().top;
+    const viewportHeight = window.innerHeight;
+
+    if (moreDataCardTop <= viewportHeight) {
+      footer.classList.add('bottom');
+    } else {
+      footer.classList.remove('bottom', 'open');
+    }
+  });
+
+  // Show footer bar on hover when it's on the bottom 
+  window.addEventListener('mousemove', function(event) {
+    const footer = document.querySelector('footer');
+    const moreDataCard = document.getElementById('more');
+    const moreDataCardTop = moreDataCard.getBoundingClientRect().top;
+    const viewportHeight = window.innerHeight;
+
+    if (moreDataCardTop <= viewportHeight && event.clientY > (viewportHeight - 60)) {
+      footer.classList.add('open');
+    } else {
+      footer.classList.remove('open');
+    }
+  });
+  //form reset
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('Userform');
+    
+    form.addEventListener('submit', function () {
+      // Clear form fields after submission
+      form.reset();
+    });
+  });
+</script>
+
+
+</body></html>
